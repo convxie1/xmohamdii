@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="MDI — personal brand, technology, programming and creative digital projects.">
+  <title>MDI — Ideas Into Reality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#090909;--panel:#111;--panel2:#151515;--text:#f5f5f5;--muted:#a1a1aa;--line:#292929;--accent:#d6ff3f;--max:1120px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}
+    body[dir="rtl"]{font-family:"Cairo",sans-serif} a{color:inherit;text-decoration:none} button{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:#090909dd;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-weight:800;font-size:27px;letter-spacing:-2px}.logo span{color:var(--accent)}
+    .links{display:flex;align-items:center;gap:28px;color:#c4c4c4;font-size:13px}.links a:hover{color:var(--accent)}
+    .nav-actions{display:flex;align-items:center;gap:10px}.lang,.menu{border:1px solid var(--line);background:transparent;color:var(--text);padding:9px 13px;border-radius:999px;cursor:pointer}
+    .menu{display:none}
+    .hero{min-height:680px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px;padding:90px 0 105px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
+    h1{font-size:clamp(58px,8vw,104px);line-height:.98;letter-spacing:-6px;margin:24px 0 25px;font-weight:800}
+    body[dir="rtl"] h1{letter-spacing:0;line-height:1.25}
+    h1 em{font-style:normal;color:var(--accent)}
+    .lead{max-width:590px;color:#aaa;font-size:17px;line-height:1.9}
+    .cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+    .btn{padding:13px 20px;border-radius:8px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);transition:.2s}
+    .btn.primary{background:var(--accent);color:#101010;border-color:var(--accent)}.btn:hover{transform:translateY(-3px)}
+    .hero-art{height:410px;position:relative;display:grid;place-items:center}
+    .orbit{width:min(340px,75vw);aspect-ratio:1;border:1px solid #ffffff25;border-radius:50%;position:absolute}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;inset:28px}
+    .orbit:after{inset:58px}
+    .monogram{width:220px;height:220px;border-radius:35px;background:linear-gradient(145deg,#1e1e1e,#0d0d0d);border:1px solid #ffffff24;display:grid;place-items:center;font-size:100px;font-weight:800;letter-spacing:-12px;box-shadow:0 25px 90px #000}
+    .monogram span{color:var(--accent)}
+    .tag{position:absolute;padding:9px 13px;background:#151515;border:1px solid #333;border-radius:8px;color:#ddd;font-size:11px;letter-spacing:1px}
+    .tag.one{top:45px;right:0}.tag.two{bottom:55px;left:0}
+    section{padding:100px 0;border-top:1px solid #ffffff12}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+    .kicker{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    h2{font-size:clamp(34px,5vw,56px);line-height:1.1;letter-spacing:-2px;margin:10px 0 0}
+    body[dir="rtl"] h2{letter-spacing:0;line-height:1.35}
+    .section-note{max-width:420px;color:var(--muted);font-size:14px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px}
+    .card h3{margin:0 0 12px;font-size:20px}.card p{color:var(--muted);margin:0;font-size:14px;line-height:1.9}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .stat{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:18px}.stat b{display:block;font-size:22px;color:var(--accent)}.stat small{color:var(--muted);font-size:11px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .service{min-height:190px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:24px;transition:.2s}
+    .service:hover,.project:hover{border-color:#7d922d;transform:translateY(-4px)}
+    .num{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1px}.service h3{margin:24px 0 8px;font-size:19px}.service p{color:var(--muted);font-size:13px;margin:0}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#171717,#0e0e0e);padding:26px;min-height:210px;transition:.2s}
+    .project .placeholder{height:75px;border:1px dashed #454545;border-radius:8px;display:grid;place-items:center;color:#777;font-size:12px;margin-bottom:18px}
+    .project h3{margin:0 0 6px}.project p{margin:0;color:var(--muted);font-size:13px}
+    .contact-box{background:var(--accent);color:#101010;border-radius:16px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .contact-box h2{max-width:600px;margin:0}.contact-box .btn{background:#101010;color:white;border-color:#101010;white-space:nowrap}
+    footer{padding:28px 0;color:#777;font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .social{display:flex;gap:18px}.social a:hover{color:var(--accent)}
+    [data-ar]{display:none} body.ar [data-en]{display:none} body.ar [data-ar]{display:initial}
+    body.ar .block-ar{display:block} body.ar .block-en{display:none}
+    .block-ar{display:none}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:75px 0 80px;gap:15px}.hero-art{height:300px}.monogram{width:170px;height:170px;font-size:78px}.links{display:none;position:absolute;top:76px;left:0;right:0;background:#101010;padding:22px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.links.open{display:flex}.menu{display:block}.services{grid-template-columns:1fr 1fr}.section-head{display:block}.section-note{margin-top:15px}}
+    @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 32px))}h1{letter-spacing:-4px}.about-grid,.projects{grid-template-columns:1fr}.services{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.contact-box{padding:30px;display:block}.contact-box .btn{margin-top:24px}.tag.one{right:2px}.tag.two{left:2px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#home">MDI<span>.</span></a>
+  <nav class="links" id="links">
+    <a href="#home" data-en>Home</a><a href="#home" data-ar>الرئيسية</a>
+    <a href="#about" data-en>About</a><a href="#about" data-ar>من أنا</a>
+    <a href="#services" data-en>What I Do</a><a href="#services" data-ar>ماذا أقدم</a>
+    <a href="#projects" data-en>Projects</a><a href="#projects" data-ar>المشاريع</a>
+    <a href="#contact" data-en>Contact</a><a href="#contact" data-ar>تواصل</a>
+  </nav>
+  <div class="nav-actions"><button class="lang" id="langBtn" aria-label="Switch language">عربي</button><button class="menu" id="menuBtn" aria-label="Open menu">☰</button></div>
+</div></header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow"><i class="dot"></i><span data-en>PERSONAL BRAND • DIGITAL WORLD</span><span data-ar>علامة شخصية • عالم رقمي</span></div>
+      <h1 data-en>Ideas into<br><em>reality.</em></h1><h1 data-ar>نحوّل الأفكار<br>إلى <em>واقع.</em></h1>
+      <p class="lead" data-en>Welcome to MDI — a personal space for technology, programming, creative thinking and digital projects. A place to explore ideas and turn them into useful experiences.</p>
+      <p class="lead" data-ar>أهلًا بيك في MDI — مساحة شخصية للتكنولوجيا والبرمجة والإبداع والمشاريع الرقمية. مكان لاستكشاف الأفكار وتحويلها لتجارب مفيدة.</p>
+      <div class="cta-row"><a class="btn primary" href="#projects"><span data-en>Explore projects ↗</span><span data-ar>استكشف المشاريع ↗</span></a><a class="btn" href="#contact"><span data-en>Get in touch</span><span data-ar>تواصل معايا</span></a></div>
+    </div>
+    <div class="hero-art"><div class="orbit"></div><div class="monogram">M<span>D</span></div><div class="tag one">CREATE / BUILD</div><div class="tag two">TECH • IDEAS • MDI</div></div>
+  </div>
+
+  <section id="about"><div class="wrap">
+    <div class="section-head"><div><div class="kicker">01 / <span data-en>THE PERSON</span><span data-ar>نبذة عني</span></div><h2 data-en>More than a name.<br>A mindset.</h2><h2 data-ar>مش مجرد اسم،<br>دي طريقة تفكير.</h2></div><p class="section-note" data-en>MDI is a growing personal brand built around curiosity, learning and creating. This section can tell your story in your own words.</p><p class="section-note" data-ar>MDI علامة شخصية في مرحلة النمو، مبنية على الفضول والتعلّم وصناعة الأفكار. هنا نقدر نحكي قصتك بكلماتك.</p></div>
+    <div class="about-grid">
+      <div class="card"><h3 data-en>Who I am</h3><h3 data-ar>مين أنا؟</h3><p data-en>I'm building my path across technology, programming and digital creativity. I believe in learning by doing, improving every day and making ideas practical.</p><p data-ar>ببني طريقي في عالم التكنولوجيا والبرمجة والإبداع الرقمي. مؤمن بالتعلّم بالتجربة، والتطوير المستمر، وتحويل الأفكار لحاجة عملية.</p></div>
+      <div class="card"><h3 data-en>What drives me</h3><h3 data-ar>إيه اللي بيحفزني؟</h3><p data-en>Curiosity, problem-solving and the challenge of creating something useful from a simple idea. The journey matters as much as the result.</p><p data-ar>الفضول، وحل المشكلات، وتحدي إنك تعمل حاجة مفيدة من فكرة بسيطة. الرحلة نفسها مهمة زي النتيجة.</p></div>
+    </div>
+    <div class="stats"><div class="stat"><b>01</b><small data-en>Keep learning</small><small data-ar>تعلّم مستمر</small></div><div class="stat"><b>02</b><small data-en>Think creatively</small><small data-ar>تفكير إبداعي</small></div><div class="stat"><b>03</b><small data-en>Build with purpose</small><small data-ar>تنفيذ بهدف</small></div></div>
+  </div></section>
+
+  <section id="services"><div class="wrap">
+    <div class="section-head"><div><div class="kicker">02 / <span data-en>CAPABILITIES</span><span data-ar>مجالات الاهتمام</span></div><h2 data-en>What I do.</h2><h2 data-ar>مجالاتي.</h2></div><p class="section-note" data-en>A flexible overview of the areas MDI is focused on. We can replace these with your real skills and services.</p><p class="section-note" data-ar>نظرة عامة على المجالات اللي بتركز عليها MDI، ونقدر نستبدلها بمهاراتك وخدماتك الفعلية.</p></div>
+    <div class="services">
+      <article class="service"><div class="num">01 / TECH</div><h3 data-en>Technology</h3><h3 data-ar>التكنولوجيا</h3><p data-en>Exploring tools, platforms and practical digital solutions.</p><p data-ar>استكشاف الأدوات والمنصات والحلول الرقمية العملية.</p></article>
+      <article class="service"><div class="num">02 / CODE</div><h3 data-en>Programming</h3><h3 data-ar>البرمجة</h3><p data-en>Learning to build websites, applications and useful systems.</p><p data-ar>تعلّم بناء المواقع والتطبيقات والأنظمة المفيدة.</p></article>
+      <article class="service"><div class="num">03 / CREATE</div><h3 data-en>Digital creativity</h3><h3 data-ar>الإبداع الرقمي</h3><p data-en>Turning concepts into clear, engaging digital experiences.</p><p data-ar>تحويل الأفكار لتجارب رقمية واضحة وجذابة.</p></article>
+    </div>
+  </div></section>
+
+  <section id="projects"><div class="wrap">
+    <div class="section-head"><div><div class="kicker">03 / <span data-en>SELECTED WORK</span><span data-ar>نماذج من الأعمال</span></div><h2 data-en>Projects & experiments.</h2><h2 data-ar>مشاريع وتجارب.</h2></div><p class="section-note" data-en>Your work deserves a clear showcase. Add real projects here as you complete them.</p><p class="section-note" data-ar>شغلك يستحق عرض منظم. ضيف مشاريعك الحقيقية هنا كل ما تخلصها.</p></div>
+    <div class="projects">
+      <article class="project"><div class="placeholder">PROJECT PREVIEW / 01</div><h3 data-en>Project One</h3><h3 data-ar>المشروع الأول</h3><p data-en>Add a short description and a link to your first project.</p><p data-ar>اكتب وصف مختصر وحط رابط أول مشروع ليك.</p></article>
+      <article class="project"><div class="placeholder">PROJECT PREVIEW / 02</div><h3 data-en>Project Two</h3><h3 data-ar>المشروع الثاني</h3><p data-en>Showcase a website, design, application or experiment.</p><p data-ar>اعرض موقع أو تصميم أو تطبيق أو تجربة نفذتها.</p></article>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap"><div class="contact-box"><h2 data-en>Have an idea?<br>Let's make it happen.</h2><h2 data-ar>عندك فكرة؟<br>خلينا ننفذها.</h2><a class="btn" href="mailto:hello@mdi.example"><span data-en>Contact me ↗</span><span data-ar>راسلني ↗</span></a></div></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> MDI. <span data-en>Built with purpose.</span><span data-ar>صُنع بهدف.</span></span><div class="social"><a href="#" aria-label="Instagram">Instagram</a><a href="#" aria-label="Facebook">Facebook</a><a href="#" aria-label="X">X</a></div><span data-en>Personal brand / Digital portfolio</span><span data-ar>علامة شخصية / معرض أعمال رقمي</span></div></footer>
+<script>
+  const body=document.body, langBtn=document.getElementById('langBtn');
+  function setLang(lang){const ar=lang==='ar';body.classList.toggle('ar',ar);body.dir=ar?'rtl':'ltr';document.documentElement.lang=ar?'ar':'en';langBtn.textContent=ar?'English':'عربي';}
+  langBtn.addEventListener('click',()=>setLang(body.classList.contains('ar')?'en':'ar'));
+  document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('links').classList.toggle('open'));
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body></html>
